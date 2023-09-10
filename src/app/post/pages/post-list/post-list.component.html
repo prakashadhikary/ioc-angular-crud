@@ -1,0 +1,42 @@
+<div class="container-fluid my-5">
+  <div class="card w-100">
+    <div class="card-header">
+      <h5 class="d-flex align-items-center justify-content-between m-0">
+        Posts
+        <button
+          type="button"
+          class="btn btn-outline-danger btn-sm me-2"
+          (click)="addPost()"
+        >
+          Add
+        </button>
+      </h5>
+    </div>
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between"
+        *ngFor="let post of posts"
+      >
+        <div class="content w-75">
+          <div class="fw-bold" (click)="editPost(post.id)">
+            {{ post.title }}
+          </div>
+          <small>{{
+            post.content.length > 200
+              ? (post.content | slice : 0 : 200) + "..."
+              : post.content
+          }}</small>
+          <br />
+          <small>
+            <a routerLink="/posts/{{ post.id }}">Read More...</a>
+          </small>
+        </div>
+        <div class="actions w-25 float-end">
+          <a routerLink="/edit/{{ post.id }}">Edit</a>
+          |
+          <a href="">Delete</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container-fluid my-5">
+  <div class="card w-100">
+    <div class="card-header">
+      <h5>{{ postId ? "Update" : "Add" }}</h5>
+    </div>
+
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="task-title" class="form-label">Title</label>
+        <input
+          type="text"
+          id="task-title"
+          placeholder="Enter a title..."
+          class="form-control"
+          [(ngModel)]="post.title"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="task-content" class="form-label">Content</label>
+        <textarea
+          type="text"
+          id="task-content"
+          placeholder="Write a short content..."
+          rows="3"
+          class="form-control"
+          [(ngModel)]="post.content"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="card-footer d-flex justify-content-between">
+      <div>
+        <input
+          type="button"
+          class="btn btn-outline-secondary btn-sm me-2"
+          (click)="goBack()"
+          value="Go Back"
+        />
+      </div>
+      <div>
+        <input
+          type="button"
+          class="btn btn-outline-secondary btn-sm me-2"
+          (click)="clear()"
+          value="Clear"
+        />
+        <input
+          type="button"
+          class="btn btn-outline-danger btn-sm"
+          (click)="savePost()"
+          value="Save"
+        />
+      </div>
+    </div>
+  </div>
+</div>
