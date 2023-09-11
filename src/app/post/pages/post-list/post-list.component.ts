@@ -34,9 +34,6 @@ export class PostListComponent {
   }
 
   deletePost(postId: number) {
-    if (confirm('Are you sure you want to delete this post?')) {
-      this.postService.deletePost(postId);
-      this.loadPosts();
-    }
+    // Todo: Remove
   }
 }
